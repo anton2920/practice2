@@ -17,11 +17,11 @@ void read_M_N(int *p_M, int *p_N)
 	do
 	{
 		printf("M = "); scanf("%d", p_M);
-	} while ((*p_M > m) || (*p_M < 0));
+	} while ((*p_M > m) || (*p_M < 1));
 	do
 	{
 		printf("N = "); scanf("%d", p_N);
-	} while ((*p_N > m) || (*p_N < 0));
+	} while ((*p_N > m) || (*p_N < 1));
 }
 
 void read(int a[m], int b[m], int M, int N)
