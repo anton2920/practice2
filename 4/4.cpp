@@ -12,9 +12,9 @@ void output2(int a1[][N], int m, int n);
 void output1(int a[N], int m);
 int task1(int a[N], int m, int x[N]);
 int task2(int a1[][N], int m, int n, int x1[][N]);
-void main()
+int main()
 {
-	int x[N],x1[N][N],a[N],a1[N][N],m,r,f,l,d,n;
+	int x[N],x1[N][N],a[N],a1[N][N],m,f,l,d,n;
 		printf("choose one or two-dimensional array ");
 		do
 		{
@@ -55,6 +55,7 @@ void main()
 		case 4:rand2(a1, m, n, x1); output2(a1, m, n); task2(a1, m, n, x1); printf("\n"); output2(a1, m, n); break;
 		}
 		system("pause");
+		return 0;
 }
 int check1(int a[N], int m, int x[N])
 {
@@ -117,7 +118,7 @@ void rand1(int a[N], int m, int x[N])
 	do
 	{
 		printf("Enter an interval of random values [a,b] ");
-		scanf_s("%d%d", &A, &B);
+		scanf("%d%d", &A, &B);
 	} while (A > B);
 	for (int i = 0; i < m; i++)
 	{
