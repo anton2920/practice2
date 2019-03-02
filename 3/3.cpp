@@ -40,7 +40,7 @@ int main()
     } while( P_deg <= 0 || P_deg >= MAX_DEG );
 
     cout << "Insert P polynom coefficients\n\nFor example:\nIf P(x) = 1*x^5 + 6*x^3 - 2*x^2 + 5*x - 13\nthen coefficients is = -13 5 -2 6 0 1 \n";
-    for (int i = 0; i <= P_deg; i++)  // i <= P_deg is not mistake
+    for (int i = 0; i <= P_deg; i++)
         cin >> P[i];
 
     do {
