@@ -18,8 +18,14 @@ int main(void)
 		}
 		else
 		{
-			n = rand() % (10 - 1 + 1) + 1;
-			printf("computer move: %d\n",n);
+			if(sum < 90)
+			{	
+				n = rand() % (10 - 1 + 1) + 1;
+				printf("computer move: %d\n",n);
+			}else{
+				n = 100 - sum;
+				printf("computer move: %d\n",n);
+			}
 			sum += n;
 			printf("sum = %d\n",sum);
 			if(sum >= 100)
