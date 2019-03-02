@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-
+#include <cmath>
 
 struct Point
 {
@@ -17,7 +17,7 @@ struct Point
 	float y;
 };
 
-std::string to_string_with_precision(const float a_value, const int n = 2);
+std::string to_string_with_precision(const float a_value, int n = 4);
 std::string lagrange_polynomial(std::vector<Point>& points);
 void getPoints(std::vector<Point>& points);
 
@@ -33,6 +33,7 @@ int main()
 
 
 	std::cout << "\n\n";
+	system("pause");
 	return 0;
 }
 
@@ -85,13 +86,36 @@ std::string lagrange_polynomial(std::vector<Point>& points)
 	{
 		denominator = 1;
 		numerator = to_string_with_precision(points[i].y);
+		/*if (points[i].y == 0)
+			continue;*/
 		for (int j = 0; j < points.size(); ++j)
 		{
 			if (j == i)
 				continue;
 			else
 			{
-				numerator = numerator + "(x - (" + to_string_with_precision(points[j].x) + "))";
+				//numerator = numerator + "(x - (" + to_string_with_precision(points[j].x) + "))";
+				/*numerator = numerator + "(x ";
+				if (points[j].x >= 0)
+					numerator += "- ";
+				else
+					numerator += "+ ";
+				numerator += to_string_with_precision(std::abs(points[j].x)) + ")";*/
+
+				if (points[j].x < 0)
+				{
+					numerator += "(x + ";
+					numerator += to_string_with_precision(abs(points[j].x)) + ")";
+				}
+				else if (points[j].x == 0)
+				{
+					numerator += "x";
+				}
+				else
+				{
+					numerator += "(x - ";
+					numerator += to_string_with_precision(points[j].x) + ")";
+				}
 				denominator = denominator * (points[i].x - points[j].x);
 			}
 		}
@@ -107,8 +131,10 @@ std::string lagrange_polynomial(std::vector<Point>& points)
 	return lagr_poly;
 }
 
-std::string to_string_with_precision(const float a_value, const int n)
+std::string to_string_with_precision(const float a_value, int n)
 {
+	if (abs(abs(a_value) - int(abs(a_value)))  <= 0.000001)
+		n = 0;
 	std::ostringstream out;
 	out.precision(n);
 	out << std::fixed << a_value;
