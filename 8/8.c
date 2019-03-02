@@ -29,7 +29,7 @@ int main(void)
 			printf("sum = %d\n\n",sum);
 			if(sum >= 100)
 			{
-				printf("You win!");
+				printf("You win!\n");
 			}
 			else
 			{
