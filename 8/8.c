@@ -1,5 +1,6 @@
-#include<stdio.h>
-#include<time.h>
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 	
 	
 int main(void)
@@ -10,7 +11,7 @@ int main(void)
 	srand(time(NULL));
 	printf("GAME RULES: The game begins with the number 0.\n" 
 	"During the course, you can add to the existing number\n"
-	"any number from 1 to 10. The received number 100 wins.\n\n");
+	"any number from 1 to 10. The one, who reach the number \"100\", wins.\n\n");
 	printf("Choose the game mode:\n1.PvE\n2.PvP\n");
 	do{
 		scanf("%d",&f);
@@ -50,7 +51,7 @@ int main(void)
 				printf("sum = %d\n\n",sum);
 				if(sum >= 100)
 				{
-					printf("You lose!");
+					printf("You lose!\n");
 				}
 			}		
 		}while(sum < 100);
@@ -65,7 +66,7 @@ int main(void)
 				printf("sum = %d\n\n",sum);
 			if(sum >= 100)
 			{
-				printf("Player1 win!");
+				printf("Player1 win!\n");
 			}
 			
 			do{
@@ -76,7 +77,7 @@ int main(void)
 				printf("sum = %d\n\n",sum);
 			if(sum >= 100)
 			{
-				printf("Player2 win!");
+				printf("Player2 win!\n");
 			}
 			}while(sum < 100);
 			break;
