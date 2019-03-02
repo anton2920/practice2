@@ -1,6 +1,14 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
+
+#ifdef _WIN32
+	#define CLEAR ("cls")
+#endif
+
+#ifdef __unix__
+	#define CLEAR ("clear")
+#endif
 
 const int m = 100, k=200;
 
@@ -8,11 +16,11 @@ void read_M_N(int *p_M, int *p_N)
 {
 	do
 	{
-		printf("M ="); scanf("%d", p_M);
+		printf("M = "); scanf("%d", p_M);
 	} while ((*p_M > m) || (*p_M < 0));
 	do
 	{
-		printf("N ="); scanf("%d", p_N);
+		printf("N = "); scanf("%d", p_N);
 	} while ((*p_N > m) || (*p_N < 0));
 }
 
@@ -104,7 +112,7 @@ int main()
 	read(a, b, M, N);
 
 	do {
-		system("cls");
+		system(CLEAR);
 		printf("Two arrays are given. Form a third array consisting of those elements that: \n 1) are present in both arrays; \n 2) are present only in one of the arrays. \n selected option: ");
 		scanf("%d", &option);	
 	} while ((option > 2) || (option < 1));
@@ -117,6 +125,5 @@ int main()
 	
 	end_new(new_arrey, K);
 
-	system("pause");
-	return 1;
+	return 0;
 }
