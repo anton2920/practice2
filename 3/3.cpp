@@ -46,10 +46,10 @@ int main()
     do {
         cout << "Insert Q polynom degree\n";
         cin >> Q_deg;
-    } while( Q_deg <= 0 || Q_deg >= MAX_DEG );
+    } while( Q_deg < 0 || Q_deg >= MAX_DEG );
 
 
-    cout << "Insert P polynom coefficients\n";
+    cout << "Insert Q polynom coefficients\n";
     for (int i = 0; i <= Q_deg; i++)
         cin >> Q[i];
 
