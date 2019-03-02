@@ -54,7 +54,9 @@ int main()
 		case 5:key2(a1, m, n, x1); output2(a1, m, n); task2(a1, m, n, x1); printf("\n"); output2(a1, m, n); break;
 		case 4:rand2(a1, m, n, x1); output2(a1, m, n); task2(a1, m, n, x1); printf("\n"); output2(a1, m, n); break;
 		}
-		system("pause");
+	
+		printf("\n");
+
 		return 0;
 }
 int check1(int a[N], int m, int x[N])
