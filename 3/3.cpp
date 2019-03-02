@@ -105,4 +105,6 @@ int main()
             cout << R[i];
     }
 
+    cout << endl;
+
  }
