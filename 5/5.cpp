@@ -33,7 +33,6 @@ int main()
 
 
 	std::cout << "\n\n";
-	system("pause");
 	return 0;
 }
 
