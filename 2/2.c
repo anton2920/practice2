@@ -3,7 +3,7 @@
 #define n 100
 
 int main(void)
-{
+{	
 	int k;
 	int i,j,sum,f = 0;
 	double p = 1;
