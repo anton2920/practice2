@@ -34,15 +34,20 @@ int main()
     int P_deg, Q_deg, R_deg, temp_deg, temp2_deg;
 
 
-    cout << "Insert P polynom degree\n\nFor example:\nIf P(x) = 1*x^5 + 6*x^3 - 2*x^2 + 5*x - 13\nthen degree = 5\n" << endl;
-    cin >> P_deg;
+    do {
+        cout << "Insert P polynom degree\n\nFor example:\nIf P(x) = 1*x^5 + 6*x^3 - 2*x^2 + 5*x - 13\nthen degree = 5\n";
+        cin >> P_deg;
+    } while( P_deg <= 0 || P_deg >= MAX_DEG );
 
     cout << "Insert P polynom coefficients\n\nFor example:\nIf P(x) = 1*x^5 + 6*x^3 - 2*x^2 + 5*x - 13\nthen coefficients is = -13 5 -2 6 0 1 \n";
     for (int i = 0; i <= P_deg; i++)  // i <= P_deg is not mistake
         cin >> P[i];
 
-    cout << "Insert Q polynom degree\n" << endl;
-    cin >> Q_deg;
+    do {
+        cout << "Insert Q polynom degree\n";
+        cin >> Q_deg;
+    } while( Q_deg <= 0 || Q_deg >= MAX_DEG );
+
 
     cout << "Insert P polynom coefficients\n";
     for (int i = 0; i <= Q_deg; i++)
