@@ -14,9 +14,9 @@ void game()
 	std::cout
 		<< "Hello! Welcome to my simple game.\n"
 		<< "The rules of the game:\n"
-		<< "In a row are 25 coins.\nFor a turn,"
+		<< "In a row, there are 25 coins.\nFor a turn,"
 		<< " it is allowed to take one or two adjacent coins.\n"
-		<< "The one who has nothing to take loses.\n\n\n";
+		<< "The one, who has nothing to take, loses.\n\n\n";
 
 	int user_choice;
 	do
