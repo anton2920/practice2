@@ -1,17 +1,31 @@
-	#include<stdio.h>
+#include<stdio.h>
+#include<time.h>
 	
-	int main(void)
+	
+int main(void)
+{
+	int f;
+	int sum = 0;
+	int n;
+	srand(time(NULL));
+	printf("GAME RULES: The game begins with the number 0.\n" 
+	"During the course, you can add to the existing number\n"
+	"any number from 1 to 10. The received number 100 wins.\n\n");
+	printf("Choose the game mode:\n1.PvE\n2.PvP\n");
+	do{
+		scanf("%d",&f);
+	}while(f < 1 || f > 2);
+	
+	switch(f)
 	{
-		int sum = 0;
-		int n;
-		srand(time(NULL));
+	case 1:
+	do{
 		do{
-			do{
-				printf("Enter the number(1 - 10)\n");
-				scanf("%d",&n);
-			}while(n < 1 || n > 10);
+			printf("Enter the number(1 - 10)\n");
+			scanf("%d",&n);
+		}while(n < 1 || n > 10);
 			sum += n;
-			printf("sum = %d\n",sum);
+			printf("sum = %d\n\n",sum);
 			if(sum >= 100)
 			{
 				printf("You win!");
@@ -31,16 +45,41 @@
 				}else if(sum == 89){
 					n = rand() % (10 - 1 + 1) + 1;
 					printf("computer move: %d\n",n);
-				}
-				
-				
+				}	
 				sum += n;
-				printf("sum = %d\n",sum);
+				printf("sum = %d\n\n",sum);
 				if(sum >= 100)
 				{
 					printf("You lose!");
 				}
+			}		
+		}while(sum < 100);
+		break;
+		case 2:
+			do{
+				do{
+					printf("Player1 step\n");
+					scanf("%d",&n);
+				}while(n < 1 || n > 10);
+				sum += n;
+				printf("sum = %d\n\n",sum);
+			if(sum >= 100)
+			{
+				printf("Player1 win!");
 			}
 			
-		}while(sum < 100);
+			do{
+					printf("Player2 step\n");
+					scanf("%d",&n);
+				}while(n < 1 || n > 10);
+				sum += n;
+				printf("sum = %d\n\n",sum);
+			if(sum >= 100)
+			{
+				printf("Player2 win!");
+			}
+			}while(sum < 100);
+			break;
+	}
+	
 	}
