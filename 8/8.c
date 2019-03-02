@@ -67,7 +67,8 @@ int main(void)
 			{
 				printf("Player1 win!");
 			}
-			
+			else{
+
 			do{
 					printf("Player2 step\n");
 					scanf("%d",&n);
@@ -78,6 +79,7 @@ int main(void)
 			{
 				printf("Player2 win!");
 			}
+		}
 			}while(sum < 100);
 			break;
 	}
