@@ -24,11 +24,11 @@ void read_n(int *n) {
 
     /* I/O flow && VarCheck */
     while (1) {
-        input("Type natural number «n»: ", n);
+        input("Type natural number \"n\": ", n);
         if (*n > 0) {
             break;
         } else {
-            printf("Error! «n» must be natural!\n\n");
+            printf("Error! \"n\" must be natural!\n\n");
             continue;
         }
     }
