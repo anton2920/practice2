@@ -2,8 +2,8 @@
 
 #define n 100
 
-int main(void)
-{
+int main(void)1
+{	
 	int k;
 	int i,j,sum,f = 0;
 	double p = 1;
@@ -12,7 +12,7 @@ int main(void)
 	do{
 		printf("Enter the number of elements\n");
 		scanf("%d",&k);
-	}while(k < 0 || k > n);
+	}while(k < 1 || k > n);
 	
 	
 	printf("Enter the array\n");
