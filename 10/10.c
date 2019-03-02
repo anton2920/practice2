@@ -71,7 +71,7 @@ int input(const char *out, int *res) {
      * the program asks you to type proper value. It's an endless loop, so you must type an integer */
 
     /* Initializing variables */
-    int a, flag = -1, multiplier = 1, counter = 0;
+    int a, flag = -1, multiplier = 1, counter = 0, flag2 = 0;
     *res = 0;
 
     /* Main part */
@@ -79,15 +79,19 @@ int input(const char *out, int *res) {
         printf("%s", out); /* Prints user-specified string */
         while (1) {
             a = getchar(); /* Gets one typed char at a time */
-            if (a == '-') { /* Detects a negative sign */
+            if (a == '-' && flag == -1 && !flag2) { /* Detects a negative sign */
                 multiplier = -1;
-            } else if (a == '+') { /* Detects a positive sign */
+                flag2 = 1;
+                continue;
+            } else if (a == '+' && flag == -1 && !flag2) { /* Detects a positive sign */
                 multiplier = 1;
+                flag2 = 1;
+                continue;
             } else if (a >= '0' && a <= '9' && flag != 0) { /* Detects digits */
                 *res = (*res * 10) + (a - '0'); /* Making of the answer */
                 flag = 1; /* «1» if a digit was detected */
                 ++counter; /* Counts a number of successfully scanned digits */
-            } else if (a != '\n' && a != '+' && a != '-') { /* Detects «garbage» */
+            } else if (a != '\n') { /* Detects «garbage» */
                 flag = 0; /* «0» if «garbage» was detected */
                 *res = 0; /* Answer is equals to zero now */
                 counter = 0;
