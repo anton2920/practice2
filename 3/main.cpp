@@ -34,17 +34,17 @@ int main()
     int P_deg, Q_deg, R_deg, temp_deg, temp2_deg;
 
 
-    cout << "Insert P polynom degree\n\nFor example:\nIf P(x) = 1*x^5 + 6*x^3 - 2*x^2 + 5*x - 13\nthen degree = 5\n\n" << endl;
+    cout << "Insert P polynom degree\n\nFor example:\nIf P(x) = 1*x^5 + 6*x^3 - 2*x^2 + 5*x - 13\nthen degree = 5\n" << endl;
     cin >> P_deg;
 
-    cout << "Insert P polynom coefficients\n\nFor example:\nIf P(x) = 1*x^5 + 6*x^3 - 2*x^2 + 5*x - 13\nthen coefficients is = -13 5 -2 6 0 1 \n\n";
+    cout << "Insert P polynom coefficients\n\nFor example:\nIf P(x) = 1*x^5 + 6*x^3 - 2*x^2 + 5*x - 13\nthen coefficients is = -13 5 -2 6 0 1 \n";
     for (int i = 0; i <= P_deg; i++)  // i <= P_deg is not mistake
         cin >> P[i];
 
-    cout << "Insert Q polynom degree\n\n" << endl;
+    cout << "Insert Q polynom degree\n" << endl;
     cin >> Q_deg;
 
-    cout << "Insert P polynom coefficients\n\n";
+    cout << "Insert P polynom coefficients\n";
     for (int i = 0; i <= Q_deg; i++)
         cin >> Q[i];
 
@@ -87,10 +87,22 @@ int main()
     R_deg = P_deg * Q_deg;
 
 
-
-
+    // вывести результат в виде многочлена
 
     cout << "\n=== RESULT: ===\n";
-    for(int i = 0; i <= R_deg; i++ )
-        cout << R[i] << " ";
+    for(int i = R_deg; i >= 0; i-- ) {
+
+        if ( R[i] < 0 )
+            cout << "- ";
+        else if ( R[i] > 0 && i != R_deg ) // для первого слагаемого "+" выводить как-то некрасиво
+            cout << "+ ";
+        else if ( i != R_deg ) // тут коэф. равен 0, нифига не выводим
+            continue;
+
+        if (i != 0) // для свободного члена x^0 писать не надо
+            cout << R[i] << "x^" << i << " ";
+        else
+            cout << R[i];
+    }
+
  }
