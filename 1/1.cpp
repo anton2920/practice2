@@ -32,44 +32,18 @@ void read(int a[m], int b[m], int M, int N)
 
 int new_array_similar(int a[m], int b[m], int M, int N, int new_arrey[k], int K)
 {
-	int index_i[m], ii = -1, index_j[m], jj = -1;
-
+	int help=INT_MIN;
+	
 	for (int i = 0; i < M; i++)
-		for (int j = 0; j < M; j++)
-	{
-			if ((a[i] == a[j]) && (i != j)) {
-				ii++; index_i[ii] = i;
-		}
-	}
-
-	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++)
 		{
-			if ((b[i] == b[j]) && (i != j)) {
-				jj++; index_j[jj] = j;
+			if (a[i] == b[j]) {
+				K++;
+				new_arrey[K] = a[i];
+				b[j] = help;
 			}
 		}
-
-	for (int i = 0; i < M; i++)
-		for (int j = 0; j < N; j++)
-			for (int iii = 0; iii < ii; iii++)
-			{
-				if ((a[i] == b[j]) && (i != index_i[iii])) { K++; new_arrey[K] = a[i]; }
-			}
-
-	for (int i = 0; i < M; i++)
-		for (int j = 0; j < N; j++)
-			for (int jjj = 0; jjj < jj; jjj++)
-			{
-				if ((a[i] == b[j]) && (j != index_j[jjj])) { K++; new_arrey[K] = a[i]; }
-			}
-	for (int iii = 0; iii < ii; iii++)
-		for (int jjj = 0; jjj < jj; jjj++)
-		{
-			if ((a[index_i[iii]] == b[index_j[jjj]]) && (new_arrey[K] != new_arrey[K - 1]) && (K > 0)) { K++; new_arrey[K] = a[index_i[iii]]; }
-		}
-
-	if (K == -1) K = -2;
+	if (K == -1) { K = -2; }
 	return K;
 }
 
@@ -118,8 +92,8 @@ void end_new(int new_arrey[k], int K)
 {
 	for (int i = 0; i < K; i++)
 		printf(" new array[%d] = %d \n", i, new_arrey[i]);
-	if (K == -1) printf(" Arrays are the same \n");
-	if (K == -2) printf(" No identical elements \n");
+	if (K == 0) printf(" Arrays are the same \n");
+	if (K == -1) printf(" No identical elements \n");
 }
 
 int main()
