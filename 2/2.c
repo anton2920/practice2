@@ -31,5 +31,5 @@ int main(void){
 		f++;
 	}
 	
-	printf("Answer = %.0lf\n",p);
+	printf("Answer = %.0lf",p);
 }
