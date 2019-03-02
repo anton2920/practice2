@@ -15,8 +15,8 @@ void game()
 		<< "Hello! Welcome to my simple game.\n"
 		<< "The rules of the game:\n"
 		<< "In a row, there are 25 coins.\nFor a turn,"
-		<< " it is allowed to take one or two adjacent coins.\n"
-		<< "The one, who has nothing to take, loses.\n\n\n";
+		<< " it is allowed to takes one or two adjacent coins.\n"
+		<< "The one, who has nothing to takes, loses.\n\n\n";
 
 	int user_choice;
 	do
@@ -47,7 +47,7 @@ void getUserInput(int* player_coins, char* coins)
 	{
 		if (adjacent_coins)
 		{
-			std::cout << "Enter the amount of coins you want to take(1 or 2): ";
+			std::cout << "Enter the amount of coins you want to takes(1 or 2): ";
 			std::cin >> player_coins[0];
 
 			if (std::cin.fail())
@@ -57,7 +57,7 @@ void getUserInput(int* player_coins, char* coins)
 				std::cin.ignore(32767, '\n');
 			}
 			else if (player_coins[0] < 1 || player_coins[0] > 2)
-				std::cout << "You can only take one or two coins.\n";
+				std::cout << "You can only takes one or two coins.\n";
 		}
 		else
 		{
@@ -94,7 +94,7 @@ void getUserInput(int* player_coins, char* coins)
 				if (player_coins[1] <= 25 && player_coins[1] >= 1 &&
 					player_coins[2] <= 25 && player_coins[2] >= 1 &&
 					player_coins[1] != player_coins[2] &&
-					coins[player_coins[1] - 1] == '*' &&  coins[player_coins[2] - 1] == '*' &&
+					coins[player_coins[1] - 1] == '*' && coins[player_coins[2] - 1] == '*' &&
 					std::abs(player_coins[1] - player_coins[2]) == 1)
 				{
 					correct = true;
@@ -161,7 +161,7 @@ void computerVsPlayer()
 			std::cout << "Step #" << ++step << ": \n";
 			if (amount_of_coins == 25)
 			{
-				std::cout << "Computer take  coin #13\n";
+				std::cout << "Computer takes coin #13\n";
 				std::cout << "Coins left: " << --amount_of_coins << '\n';
 				coins[12] = ' ';
 			}
@@ -170,7 +170,7 @@ void computerVsPlayer()
 				if (player_coins[0] % 2)
 				{
 					// 1 coin:
-					std::cout << "Computer take coin # " << 26 - player_coins[1] << '\n';
+					std::cout << "Computer takes coin # " << 26 - player_coins[1] << '\n';
 					std::cout << "Coins left: " << --amount_of_coins << '\n';
 					coins[26 - player_coins[1] - 1] = ' ';
 				}
@@ -198,7 +198,7 @@ void computerVsPlayer()
 			if (player_coins[0] % 2)
 			{
 				// 1 coin:
-				std::cout << "Player take coin #" << player_coins[1] << "\n";
+				std::cout << "Player takes coin #" << player_coins[1] << "\n";
 				coins[player_coins[1] - 1] = ' ';
 				std::cout << "Coins left: " << --amount_of_coins << '\n';
 			}
@@ -233,7 +233,7 @@ void computerVsPlayer()
 			if (player_coins[0] % 2)
 			{
 				// 1 coin:
-				std::cout << "Player take coin #" << player_coins[1] << "\n";
+				std::cout << "Player takes coin #" << player_coins[1] << "\n";
 				coins[player_coins[1] - 1] = ' ';
 				std::cout << "Coins left: " << --amount_of_coins << '\n';
 			}
@@ -279,7 +279,7 @@ void computerVsPlayer()
 			if (computer_coins[0] % 2)
 			{
 				// 1 coin:
-				std::cout << "Computer take coin #" << computer_coins[1] << "\n";
+				std::cout << "Computer takes coin #" << computer_coins[1] << "\n";
 				std::cout << "Coins left: " << --amount_of_coins << '\n';
 				coins[computer_coins[1] - 1] = ' ';
 			}
@@ -333,7 +333,7 @@ void playerVsPlayer()
 			if (player1_coins[0] % 2)
 			{
 				// 1 coin:
-				std::cout << "Player1 take coin #" << player1_coins[1] << "\n";
+				std::cout << "Player1 takes coin #" << player1_coins[1] << "\n";
 				coins[player1_coins[1] - 1] = ' ';
 				std::cout << "Coins left: " << --amount_of_coins << '\n';
 			}
@@ -361,7 +361,7 @@ void playerVsPlayer()
 			if (player2_coins[0] % 2)
 			{
 				// 1 coin:
-				std::cout << "Player2 take coin #" << player2_coins[1] << "\n";
+				std::cout << "Player2 takes coin #" << player2_coins[1] << "\n";
 				coins[player2_coins[1] - 1] = ' ';
 				std::cout << "Coins left: " << --amount_of_coins << '\n';
 			}
@@ -400,7 +400,7 @@ void playerVsPlayer()
 			if (player2_coins[0] % 2)
 			{
 				// 1 coin:
-				std::cout << "Player2 take coin #" << player2_coins[1] << "\n";
+				std::cout << "Player2 takes coin #" << player2_coins[1] << "\n";
 				coins[player2_coins[1] - 1] = ' ';
 				std::cout << "Coins left: " << --amount_of_coins << '\n';
 			}
@@ -429,7 +429,7 @@ void playerVsPlayer()
 			if (player1_coins[0] % 2)
 			{
 				// 1 coin:
-				std::cout << "Player1 take coin #" << player1_coins[1] << "\n";
+				std::cout << "Player1 takes coin #" << player1_coins[1] << "\n";
 				coins[player1_coins[1] - 1] = ' ';
 				std::cout << "Coins left: " << --amount_of_coins << '\n';
 			}
