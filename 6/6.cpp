@@ -170,7 +170,7 @@ void computerVsPlayer()
 				if (player_coins[0] % 2)
 				{
 					// 1 coin:
-					std::cout << "Computer take coin# " << 26 - player_coins[1] << '\n';
+					std::cout << "Computer take coin # " << 26 - player_coins[1] << '\n';
 					std::cout << "Coins left: " << --amount_of_coins << '\n';
 					coins[26 - player_coins[1] - 1] = ' ';
 				}
