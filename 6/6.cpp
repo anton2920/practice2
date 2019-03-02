@@ -6,6 +6,7 @@
 void game();
 void computerVsPlayer();
 void getUserInput(int* player_coins, char* coins);
+void playerVsPlayer();
 
 void game()
 {
@@ -16,7 +17,21 @@ void game()
 		<< "In a row are 25 coins.\nFor a turn,"
 		<< " it is allowed to take one or two adjacent coins.\n"
 		<< "The one who has nothing to take loses.\n\n\n";
-	computerVsPlayer();
+
+	int user_choice;
+	do
+	{
+		std::cout << "Select mode of the game:\n"
+			<< "1 - Computer Vs Player\n"
+			<< "2 - Player1 vs Player2\n";
+		std::cin >> user_choice;
+	} while (user_choice != 1 && user_choice != 2);
+
+	std::cout << "\n\n";
+	if (user_choice == 1)
+		computerVsPlayer();
+	else
+		playerVsPlayer();
 }
 
 void getUserInput(int* player_coins, char* coins)
@@ -213,6 +228,7 @@ void computerVsPlayer()
 		std::cout << "Player goes first!\n";
 		while (amount_of_coins > 0)
 		{
+			std::cout << "Step #" << ++step << ": \n";
 			getUserInput(player_coins, coins);
 			if (player_coins[0] % 2)
 			{
@@ -287,6 +303,158 @@ void computerVsPlayer()
 		}
 	}
 
+}
+
+void playerVsPlayer()
+{
+	int step(0);
+	int amount_of_coins(25);
+
+	// Toss a coin to decide who goes first.
+	// 0 - computer, 1 - player.
+	int roll = rand() % 2;
+
+	// [0] - amount of coins; [1], [2] - position in a row.
+	int player1_coins[3] = { -1,-1,-1 };
+	int player2_coins[3] = { -1,-1,-1 };
+
+	char coins[25];
+	for (auto& c : coins)
+		c = '*';
+
+	if (roll == 0)
+	{
+		std::cout << "Player1 goes first.\n";
+		while (amount_of_coins > 0)
+		{
+			std::cout << "Step #" << ++step << ": \n";
+			std::cout << "Player1 turn!\n";
+			getUserInput(player1_coins, coins);
+			if (player1_coins[0] % 2)
+			{
+				// 1 coin:
+				std::cout << "Player1 takes " << player1_coins[1] << " coin.\n";
+				coins[player1_coins[1] - 1] = ' ';
+				std::cout << "Coins left: " << --amount_of_coins << '\n';
+			}
+			else
+			{
+				// 2 coins:
+				std::cout << "Player1 takes " << player1_coins[1]
+					<< " and " << player1_coins[2] << " coins.\n";
+				amount_of_coins -= 2;
+				coins[player1_coins[1] - 1] = ' ';
+				coins[player1_coins[2] - 1] = ' ';
+				std::cout << "Coins left: " << amount_of_coins << '\n';
+			}
+
+			drawCoins(coins);
+
+			if (amount_of_coins == 0)
+			{
+				std::cout << "Player1 Won!\n";
+				return;
+			}
+
+			std::cout << "Player2 turn!\n";
+			getUserInput(player2_coins, coins);
+			if (player2_coins[0] % 2)
+			{
+				// 1 coin:
+				std::cout << "Player2 takes " << player2_coins[1] << " coin.\n";
+				coins[player2_coins[1] - 1] = ' ';
+				std::cout << "Coins left: " << --amount_of_coins << '\n';
+			}
+			else
+			{
+				// 2 coins:
+				std::cout << "Player2 takes " << player2_coins[1]
+					<< " and " << player2_coins[2] << " coins.\n";
+				amount_of_coins -= 2;
+				coins[player2_coins[1] - 1] = ' ';
+				coins[player2_coins[2] - 1] = ' ';
+				std::cout << "Coins left: " << amount_of_coins << '\n';
+			}
+
+			drawCoins(coins);
+
+			if (amount_of_coins == 0)
+			{
+				std::cout << "Player2 Won!\n";
+				return;
+			}
+
+
+		}
+	}
+	else
+	{
+		std::cout << "Player2 goes first.\n";
+		while (amount_of_coins > 0)
+		{
+			std::cout << "Step #" << ++step << ": \n";
+
+			std::cout << "Player2 turn!\n";
+
+			getUserInput(player2_coins, coins);
+			if (player2_coins[0] % 2)
+			{
+				// 1 coin:
+				std::cout << "Player2 takes " << player2_coins[1] << " coin.\n";
+				coins[player2_coins[1] - 1] = ' ';
+				std::cout << "Coins left: " << --amount_of_coins << '\n';
+			}
+			else
+			{
+				// 2 coins:
+				std::cout << "Player2 takes " << player2_coins[1]
+					<< " and " << player2_coins[2] << " coins.\n";
+				amount_of_coins -= 2;
+				coins[player2_coins[1] - 1] = ' ';
+				coins[player2_coins[2] - 1] = ' ';
+				std::cout << "Coins left: " << amount_of_coins << '\n';
+			}
+
+			drawCoins(coins);
+
+			if (amount_of_coins == 0)
+			{
+				std::cout << "Player2 Won!\n";
+				return;
+			}
+
+
+			std::cout << "Player1 turn!\n";
+			getUserInput(player1_coins, coins);
+			if (player1_coins[0] % 2)
+			{
+				// 1 coin:
+				std::cout << "Player1 takes " << player1_coins[1] << " coin.\n";
+				coins[player1_coins[1] - 1] = ' ';
+				std::cout << "Coins left: " << --amount_of_coins << '\n';
+			}
+			else
+			{
+				// 2 coins:
+				std::cout << "Player1 takes " << player1_coins[1]
+					<< " and " << player1_coins[2] << " coins.\n";
+				amount_of_coins -= 2;
+				coins[player1_coins[1] - 1] = ' ';
+				coins[player1_coins[2] - 1] = ' ';
+				std::cout << "Coins left: " << amount_of_coins << '\n';
+			}
+
+			drawCoins(coins);
+
+			if (amount_of_coins == 0)
+			{
+				std::cout << "Player1 Won!\n";
+				return;
+			}
+
+
+		}
+	}
 }
 
 
