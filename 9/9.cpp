@@ -82,6 +82,5 @@ int main(void)
 
 	printf("%.1lf\n", p);
 
-	system("pause");
 	return 0;
 }
