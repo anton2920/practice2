@@ -27,17 +27,17 @@ int main()
 		{
 			do {
 				scanf("%d", &m);
-				if (m < 1 || m>25)
+				if (m < 2 || m>25)
 					printf("The incorrect value is entered.Try again ");
-			} while (m < 1 || m>25);
+			} while (m < 2 || m>25);
 		}
 		else
 		{
 			do {
 				scanf("%d%d", &m, &n);
-				if ((m < 1 || m>25) && (n < 1 || n>25))
+				if ((m < 2 || m>25) && (n < 2 || n>25))
 					printf("The incorrect value is entered.Try again ");
-			} while ((m < 1 || m>25) && (n < 1 || n>25));
+			} while ((m < 2 || m>25) && (n < 2 || n>25));
 		}
 		printf("To fill the array from the keyboard(1) or it is random(2)? ");
 		do {
